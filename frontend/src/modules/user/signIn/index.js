@@ -1,6 +1,1 @@
-// export { default as SignInComponent } from './SignIn';
-
-import SignIn from './SignIn';
-
-export { SignIn };
-
+export { default as SignIn } from './SignIn';
