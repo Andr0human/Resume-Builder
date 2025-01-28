@@ -39,7 +39,7 @@ const ProtectedRoute = ({ children }) => {
     return children;
   }
 
-  return <Navigate to='/login' replace />;
+  return <Navigate to='/signin' replace />;
 };
 
 ProtectedRoute.propTypes = {
