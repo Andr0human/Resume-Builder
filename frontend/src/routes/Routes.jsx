@@ -12,7 +12,7 @@ const Router = () => (
       <Route path='/' element={<Navigate to='project' replace />} />
       <Route path='project/*' element={<Home />} />
       <Route
-        path='register'
+        path='signup'
         element={
           <PublicRoute>
             <div>Register Component!!</div>
@@ -20,7 +20,7 @@ const Router = () => (
         }
       />
       <Route
-        path='login'
+        path='signin'
         element={
           <PublicRoute>
             <SignIn />
