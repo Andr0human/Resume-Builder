@@ -3,6 +3,7 @@ import { ErrorPage } from '../components';
 import Home from '../modules/home/Home';
 import { ProtectedRoute, PublicRoute } from './auth';
 import { SignIn, SignUp } from '../modules/user';
+import { Builder } from '../modules/builder';
 
 const Router = () => (
   <BrowserRouter>
@@ -16,6 +17,7 @@ const Router = () => (
           </ProtectedRoute>
         }
       />
+      <Route path='builder' element={<Builder />} />
       <Route
         path='signup'
         element={
