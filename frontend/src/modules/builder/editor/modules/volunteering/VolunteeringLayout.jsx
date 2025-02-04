@@ -11,7 +11,7 @@ const VolunteeringLayout = () => {
   const onMoveUp = useVoluteeringStore.getState().onmoveup;
   const onMoveDown = useVoluteeringStore.getState().onmovedown;
 
-  const [expanded, setExpanded] = useState<string | false>(false);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     setExpanded(allVolunteeringExps[0]?.id);

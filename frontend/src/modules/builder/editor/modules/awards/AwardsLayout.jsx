@@ -11,7 +11,7 @@ const AwardsLayout = () => {
   const onMoveUp = useAwards.getState().onmoveup;
   const onMoveDown = useAwards.getState().onmovedown;
 
-  const [expanded, setExpanded] = useState<string | false>(false);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     setExpanded(allAwards[0]?.id);
