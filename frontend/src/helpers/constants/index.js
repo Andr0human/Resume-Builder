@@ -30,7 +30,7 @@ export const AVAILABLE_TEMPLATES = {
     id: 'modern',
     name: 'Modern Resume',
     thumbnail: '/templates/modern.png',
-    component: lazy(() => import('../../modules/templates/modern/MordernTemplate')),
+    component: lazy(() => import('../../modules/templates/modern/ModernTemplate')),
   },
   professional: {
     id: 'professional',

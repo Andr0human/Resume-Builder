@@ -10,11 +10,11 @@ import { useContext } from 'react';
 import { StateContext } from '../../builder/resume/ResumeLayout';
 import { SectionValidator } from '../../../helpers/common/components/ValidSectionRenderer';
 
-export default function MordernTemplate() {
+export default function ModernTemplate() {
   const resumeData = useContext(StateContext);
 
   return (
-    <div className="p-2">
+    <div className='p-2'>
       <BasicIntro
         name={resumeData.basics.name}
         label={resumeData.basics.label}
@@ -25,8 +25,8 @@ export default function MordernTemplate() {
         image={resumeData.basics.image}
         profiles={resumeData.basics.profiles}
       />
-      <div className="flex">
-        <div className="basis-[60%] p-3">
+      <div className='flex'>
+        <div className='basis-[60%] p-3'>
           <SectionValidator value={resumeData.basics.summary}>
             <SummarySection summary={resumeData.basics.summary} />
           </SectionValidator>
@@ -40,28 +40,28 @@ export default function MordernTemplate() {
           </SectionValidator>
         </div>
 
-        <div className="basis-[40%] p-3">
+        <div className='basis-[40%] p-3'>
           <SectionValidator value={resumeData.basics.objective}>
             <Objective objective={resumeData.basics.objective} />
           </SectionValidator>
 
           <SectionValidator value={resumeData.skills.languages}>
-            <SkillsSection title="Languages" list={resumeData.skills.languages} />
+            <SkillsSection title='Languages' list={resumeData.skills.languages} />
           </SectionValidator>
 
           <SectionValidator value={resumeData.skills.technologies}>
-            <SkillsSection title="Technologies" list={resumeData.skills.technologies} />
+            <SkillsSection title='Technologies' list={resumeData.skills.technologies} />
           </SectionValidator>
 
           <SectionValidator value={resumeData.skills.frameworks}>
             <SkillsSection
-              title="Frameworks & Libraries"
+              title='Frameworks & Libraries'
               list={resumeData.skills.frameworks.concat(resumeData.skills.libraries)}
             />
           </SectionValidator>
 
           <SectionValidator value={resumeData.skills.tools}>
-            <SkillsSection title="Tools" list={resumeData.skills.tools} />
+            <SkillsSection title='Tools' list={resumeData.skills.tools} />
           </SectionValidator>
 
           <SectionValidator value={resumeData.education}>
