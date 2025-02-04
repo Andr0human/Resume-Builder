@@ -6,9 +6,9 @@ import { LinkPlugin } from './plugins/link';
 import styles from './jodit.module.css';
 
 export const RichtextEditor = memo(({ label, onChange, value }) => {
-  const editorContainerRef = useRef<HTMLTextAreaElement | null>(null);
+  const editorContainerRef = useRef(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const editorRef = useRef<any>(null);
+  const editorRef = useRef(null);
   const [editorInstanceCreated, setEditorInstanceCreated] = useState(false);
 
   useEffect(() => {

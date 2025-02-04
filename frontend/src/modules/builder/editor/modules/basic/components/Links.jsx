@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { Fragment, useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
+import { useEffect, useState } from 'react';
 
 const SUPPORTED_NETWORKS = {
   linkedin: 'linkedin',
@@ -85,7 +85,7 @@ const Links = ({
   };
 
   return (
-    <Fragment>
+    <>
       <TextField
         label="LinkedIn"
         variant="filled"
@@ -150,7 +150,7 @@ const Links = ({
           onURLChange(event.target.value, SUPPORTED_NETWORKS.cssbattle);
         }}
       />
-    </Fragment>
+    </>
   );
 };
 

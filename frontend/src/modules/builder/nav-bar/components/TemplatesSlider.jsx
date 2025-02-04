@@ -11,8 +11,8 @@ import { useTemplates } from '../../../../stores/useTemplate';
 export const TemplateSlider = () => {
   const templateIndex = useTemplates((state) => state.activeTemplate.id);
 
-  const targetElementRef = useRef<HTMLElement | null>(null);
-  const splideInstanceRef = useRef<Splide | null>(null);
+  const targetElementRef = useRef(null);
+  const splideInstanceRef = useRef(null);
 
   useEffect(() => {
     const targetElement = targetElementRef.current;

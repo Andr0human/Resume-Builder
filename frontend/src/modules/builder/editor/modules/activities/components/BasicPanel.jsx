@@ -1,11 +1,10 @@
-import React, { Fragment } from 'react';
 import Box from '@mui/material/Box';
 
 const BasicPanel = ({ activeTab }) => {
   const ActiveTabComponent = activeTab.component;
 
   return (
-    <Fragment>
+    <>
       <Box
         component="form"
         sx={{
@@ -19,7 +18,7 @@ const BasicPanel = ({ activeTab }) => {
       >
         <ActiveTabComponent />
       </Box>
-    </Fragment>
+    </>
   );
 };
 

@@ -1,5 +1,4 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { Fragment } from 'react';
 
 const animation = {
   exit: {
@@ -34,7 +33,7 @@ const MoveEditSection = ({
         </span>
         <div className="flex gap-3">
           {length > 1 && (
-            <Fragment>
+            <>
               <img
                 src={'/icons/up-arrow.svg'}
                 width={16}
@@ -55,7 +54,7 @@ const MoveEditSection = ({
                   onMoveDown(index);
                 }}
               />
-            </Fragment>
+            </>
           )}
           <img
             src={'/icons/delete.svg'}

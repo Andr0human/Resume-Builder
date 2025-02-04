@@ -1,10 +1,10 @@
-import React, { ChangeEvent, Fragment, useCallback } from 'react';
 import TextField from '@mui/material/TextField';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
-import { useEducations } from '../../../../../../stores/education';
+import { useCallback } from 'react';
 import { SwitchWidget } from '../../../../../../helpers/common/atoms/Switch';
 import { DATE_PICKER_FORMAT } from '../../../../../../helpers/constants';
+import { useEducations } from '../../../../../../stores/education';
 
 const Education = ({ educationInfo, currentIndex }) => {
   const onChangeHandler = useCallback(
@@ -47,62 +47,62 @@ const Education = ({ educationInfo, currentIndex }) => {
   );
 
   return (
-    <Fragment>
+    <>
       <TextField
-        label="School or College name"
-        variant="filled"
+        label='School or College name'
+        variant='filled'
         value={educationInfo.institution}
         onChange={(e) => {
           const value = e.target.value;
           onChangeHandler('academyName', value);
         }}
-        autoComplete="off"
+        autoComplete='off'
         fullWidth
         required
         autoFocus={true}
         sx={{ marginBottom: '26px' }}
       />
       <TextField
-        label="Degree"
-        variant="filled"
+        label='Degree'
+        variant='filled'
         value={educationInfo.studyType}
         onChange={(e) => {
           const value = e.target.value;
           onChangeHandler('degree', value);
         }}
-        autoComplete="off"
+        autoComplete='off'
         fullWidth
         required
         sx={{ marginBottom: '26px' }}
       />
       <TextField
-        label="Area"
-        variant="filled"
+        label='Area'
+        variant='filled'
         value={educationInfo.area}
         onChange={(e) => {
           const value = e.target.value;
           onChangeHandler('area', value);
         }}
-        autoComplete="off"
+        autoComplete='off'
         fullWidth
         required
         sx={{ marginBottom: '26px' }}
       />
       <TextField
-        label="Grade"
-        variant="filled"
+        label='Grade'
+        variant='filled'
         value={educationInfo.score}
         onChange={(e) => {
           const value = e.target.value;
           onChangeHandler('grade', value);
         }}
-        autoComplete="off"
+        autoComplete='off'
         fullWidth
         required
         sx={{ marginBottom: '26px' }}
       />
       <DatePicker
-        label="Start date"
+        label='Start date'
         format={DATE_PICKER_FORMAT}
         value={dayjs(educationInfo.startDate)}
         onChange={(newDate) => {
@@ -120,7 +120,7 @@ const Education = ({ educationInfo, currentIndex }) => {
         }}
       />
       <DatePicker
-        label="Start date"
+        label='Start date'
         format={DATE_PICKER_FORMAT}
         value={educationInfo.isStudyingHere ? null : dayjs(educationInfo.endDate)}
         onChange={(newDate) => {
@@ -137,7 +137,7 @@ const Education = ({ educationInfo, currentIndex }) => {
         }}
         disabled={educationInfo.isStudyingHere}
       />
-    </Fragment>
+    </>
   );
 };
 

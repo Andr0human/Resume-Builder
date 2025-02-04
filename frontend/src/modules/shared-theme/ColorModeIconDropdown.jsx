@@ -24,7 +24,7 @@ export default function ColorModeIconDropdown(props) {
   if (!mode) {
     return (
       <Box
-        data-screenshot="toggle-mode"
+        data-screenshot='toggle-mode'
         sx={(theme) => ({
           verticalAlign: 'bottom',
           display: 'inline-flex',
@@ -43,14 +43,14 @@ export default function ColorModeIconDropdown(props) {
     dark: <DarkModeIcon />,
   }[resolvedMode];
   return (
-    <React.Fragment>
+    <>
       <IconButton
-        data-screenshot="toggle-mode"
+        data-screenshot='toggle-mode'
         onClick={handleClick}
         disableRipple
-        size="small"
+        size='small'
         aria-controls={open ? 'color-scheme-menu' : undefined}
-        aria-haspopup="true"
+        aria-haspopup='true'
         aria-expanded={open ? 'true' : undefined}
         {...props}
       >
@@ -58,7 +58,7 @@ export default function ColorModeIconDropdown(props) {
       </IconButton>
       <Menu
         anchorEl={anchorEl}
-        id="account-menu"
+        id='account-menu'
         open={open}
         onClose={handleClose}
         onClick={handleClose}
@@ -84,6 +84,6 @@ export default function ColorModeIconDropdown(props) {
           Dark
         </MenuItem>
       </Menu>
-    </React.Fragment>
+    </>
   );
 }

@@ -1,11 +1,11 @@
-import React, { Fragment, useCallback } from 'react';
 import TextField from '@mui/material/TextField';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import React, { useCallback } from 'react';
 
-import { useAwards } from '../../../../../../stores/awards';
+import dayjs from 'dayjs';
 import { RichtextEditor } from '../../../../../../helpers/common/components/richtext';
 import { DATE_PICKER_FORMAT } from '../../../../../../helpers/constants';
-import dayjs from 'dayjs';
+import { useAwards } from '../../../../../../stores/awards';
 
 const AwardComp = ({ awardInfo, currentIndex }) => {
   const onChangeHandler = useCallback(
@@ -41,7 +41,7 @@ const AwardComp = ({ awardInfo, currentIndex }) => {
   );
 
   return (
-    <Fragment>
+    <>
       <TextField
         label="Award name"
         variant="filled"
@@ -92,7 +92,7 @@ const AwardComp = ({ awardInfo, currentIndex }) => {
         onChange={onSummaryChange}
         name="summary"
       />
-    </Fragment>
+    </>
   );
 };
 

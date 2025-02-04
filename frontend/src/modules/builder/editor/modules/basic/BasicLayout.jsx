@@ -1,4 +1,3 @@
-import React, { Fragment } from 'react';
 import { useBasicDetails } from '../../../../../stores/basic';
 import BasicHeader from './components/BasicHeader';
 import BasicPanel from './components/BasicPanel';
@@ -15,7 +14,7 @@ const BasicLayout = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <BasicHeader
         activeTab={activeTab}
         changeActiveTab={changeActiveTab}
@@ -26,7 +25,7 @@ const BasicLayout = () => {
         basicTabs={basicTabs}
         onChangeText={onChangeText}
       ></BasicPanel>
-    </Fragment>
+    </>
   );
 };
 

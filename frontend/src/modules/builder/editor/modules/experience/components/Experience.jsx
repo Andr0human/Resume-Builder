@@ -1,11 +1,11 @@
-import React, { ChangeEvent, Fragment, useCallback } from 'react';
 import TextField from '@mui/material/TextField';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
-import { useExperiences } from '../../../../../../stores/experience';
+import React, { useCallback } from 'react';
 import { SwitchWidget } from '../../../../../../helpers/common/atoms/Switch';
 import { RichtextEditor } from '../../../../../../helpers/common/components/richtext';
 import { DATE_PICKER_FORMAT } from '../../../../../../helpers/constants';
+import { useExperiences } from '../../../../../../stores/experience';
 
 const Experience = ({ experienceInfo, currentIndex }) => {
   const onChangeHandler = useCallback(
@@ -55,36 +55,36 @@ const Experience = ({ experienceInfo, currentIndex }) => {
   );
 
   return (
-    <Fragment>
+    <>
       <TextField
-        label="Comapany name"
-        variant="filled"
+        label='Comapany name'
+        variant='filled'
         value={experienceInfo.name}
         onChange={(e) => {
           const value = e.target.value;
           onChangeHandler('companyName', value);
         }}
-        autoComplete="off"
+        autoComplete='off'
         fullWidth
         required
         autoFocus={true}
         sx={{ marginBottom: '26px' }}
       />
       <TextField
-        label="Position"
-        variant="filled"
+        label='Position'
+        variant='filled'
         value={experienceInfo.position}
         onChange={(e) => {
           const value = e.target.value;
           onChangeHandler('position', value);
         }}
-        autoComplete="off"
+        autoComplete='off'
         fullWidth
         required
         sx={{ marginBottom: '26px' }}
       />
       <DatePicker
-        label="Start date"
+        label='Start date'
         format={DATE_PICKER_FORMAT}
         value={dayjs(experienceInfo.startDate)}
         onChange={(newDate) => {
@@ -102,7 +102,7 @@ const Experience = ({ experienceInfo, currentIndex }) => {
         }}
       />
       <DatePicker
-        label="End date"
+        label='End date'
         format={DATE_PICKER_FORMAT}
         value={experienceInfo.isWorkingHere ? null : dayjs(experienceInfo.endDate)}
         onChange={(newDate) => {
@@ -120,24 +120,24 @@ const Experience = ({ experienceInfo, currentIndex }) => {
         disabled={experienceInfo.isWorkingHere}
       />
       <TextField
-        label="Years"
-        variant="filled"
+        label='Years'
+        variant='filled'
         value={experienceInfo.years}
         onChange={(e) => {
           const value = e.target.value;
           onChangeHandler('years', value);
         }}
-        autoComplete="off"
+        autoComplete='off'
         fullWidth
         sx={{ marginBottom: '26px' }}
       />
       <RichtextEditor
-        label="Few points on this work experience"
+        label='Few points on this work experience'
         value={experienceInfo.summary}
         onChange={onSummaryChange}
-        name="summary"
+        name='summary'
       />
-    </Fragment>
+    </>
   );
 };
 

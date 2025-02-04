@@ -1,5 +1,4 @@
-import { Fragment, useState } from 'react';
-
+import { useState } from 'react';
 import { NavMenuPopover } from './NavMenuPopover';
 import { StyledButton } from '../atoms';
 
@@ -15,7 +14,7 @@ export const NavMenuItem = ({ caption, popoverChildren }) => {
   };
 
   return (
-    <Fragment>
+    <>
       <StyledButton
         variant='text'
         size='small'
@@ -37,6 +36,6 @@ export const NavMenuItem = ({ caption, popoverChildren }) => {
       <NavMenuPopover isOpen={!!anchorEl} anchorElement={anchorEl} id='mark' onClose={handleClose}>
         {popoverChildren}
       </NavMenuPopover>
-    </Fragment>
+    </>
   );
 };

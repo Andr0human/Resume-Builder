@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { Fragment } from 'react';
 import Box from '@mui/material/Box';
+import About from './About';
 import Contacts from './Contacts';
 import Links from './Links';
-import About from './About';
 
 const BasicPanel = ({
   activeTab,
@@ -17,7 +16,7 @@ const BasicPanel = ({
   };
 
   return (
-    <Fragment>
+    <>
       <Box
         component="form"
         sx={{
@@ -35,7 +34,7 @@ const BasicPanel = ({
         {activeTab == 1 && <Links basicTabs={basicTabs} onChangeHandler={onChangeHandler}></Links>}
         {activeTab == 2 && <About basicTabs={basicTabs} onChangeHandler={onChangeHandler}></About>}
       </Box>
-    </Fragment>
+    </>
   );
 };
 
