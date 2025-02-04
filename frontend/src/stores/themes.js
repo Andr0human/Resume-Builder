@@ -1,13 +1,27 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-import { SYSTEM_COLORS, CUSTOM_THEME_COLOR } from '../helpers/constants';
+const systemColor = {
+  backgroundColor: 'white',
+  fontColor: 'black',
+  titleColor: '#1890ff',
+  highlighterColor: 'yellowgreen',
+  id: 1,
+};
+
+const customThemeColor = {
+  backgroundColor: 'white',
+  fontColor: 'black',
+  titleColor: 'green',
+  highlighterColor: '#ff7875',
+  id: 4,
+};
 
 export const useThemes = create()(
   persist(
     (set) => ({
-      selectedTheme: SYSTEM_COLORS[0],
-      customTheme: CUSTOM_THEME_COLOR,
+      selectedTheme: systemColor,
+      customTheme: customThemeColor,
       chooseTheme: (theme) => {
         set(() => ({ selectedTheme: theme }));
       },

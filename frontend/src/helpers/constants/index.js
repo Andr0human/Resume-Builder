@@ -1,4 +1,5 @@
-import { lazy } from 'react';
+import ModernTemplate from '../../modules/templates/modern/ModernTemplate';
+import ProfessionalTemplate from '../../modules/templates/professional/ProfessionalTemplate';
 
 export const SYSTEM_COLORS = [
   {
@@ -24,19 +25,18 @@ export const SYSTEM_COLORS = [
   },
 ];
 
-
 export const AVAILABLE_TEMPLATES = {
   modern: {
     id: 'modern',
     name: 'Modern Resume',
     thumbnail: '/templates/modern.png',
-    component: lazy(() => import('../../modules/templates/modern/ModernTemplate')),
+    component: ModernTemplate,
   },
   professional: {
     id: 'professional',
     name: 'Professional Resume',
     thumbnail: '/templates/professional.png',
-    component: lazy(() => import('../../modules/templates/professional/ProfessionalTemplate')),
+    component: ProfessionalTemplate,
   },
 };
 
