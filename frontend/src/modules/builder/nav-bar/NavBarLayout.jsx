@@ -146,15 +146,7 @@ const NavBarLayout = () => {
             <StyledButton variant='text' onClick={exportResumeData}>
               Export
             </StyledButton>
-            <StyledButton
-              variant='text'
-              onClick={() => {
-                if (fileInputRef.current) {
-                  const fileElement = fileInputRef.current;
-                  fileElement.click();
-                }
-              }}
-            >
+            <StyledButton variant='text' onClick={() => fileInputRef.current?.click()}>
               Import{' '}
               <input
                 type='file'
@@ -167,13 +159,15 @@ const NavBarLayout = () => {
             <PrintResume />
           </NavBarActions>
         </div>
-        <button
-          className='flex md:hidden text-white'
-          onClick={handleMenuOpen}
-          aria-label='Open menu'
-        >
-          <img src='/icons/more-horizontal.svg' alt='back' width={25} height={25} />
-        </button>
+        <div className='block md:hidden'>
+          <button
+            className='text-white p-2'
+            onClick={handleMenuOpen}
+            aria-label='Open menu'
+          >
+            <img src='/icons/more-horizontal.svg' alt='menu' width={25} height={25} />
+          </button>
+        </div>
       </div>
       <Menu
         anchorEl={menuAnchor}
