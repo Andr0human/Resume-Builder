@@ -26,15 +26,25 @@ const Home = () => {
     navigate('/builder');
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
+
   return (
     <div style={styles.container}>
       <div style={styles.mainContent}>
         <div style={styles.header}>
           <h1 style={styles.title}>All Projects</h1>
-          <button style={styles.newProjectButton} onClick={handleOpen}>
-            <span style={styles.plusIcon}>+</span>
-            New Project
-          </button>
+          <div style={styles.headerActions}>
+            <button style={styles.newProjectButton} onClick={handleOpen}>
+              <span style={styles.plusIcon}>+</span>
+              New Project
+            </button>
+            <button style={styles.signOutButton} onClick={handleLogout}>
+              Sign Out
+            </button>
+          </div>
         </div>
         <div style={styles.searchContainer}>
           <input type='text' placeholder='Search in all projects...' style={styles.searchInput} />
@@ -168,6 +178,11 @@ const styles = {
     fontWeight: '500',
     color: 'white',
   },
+  headerActions: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '16px',
+  },
   newProjectButton: {
     display: 'flex',
     alignItems: 'center',
@@ -285,6 +300,21 @@ const styles = {
     mt: 4,
     pt: 3,
     borderTop: '1px solid #eee',
+  },
+  signOutButton: {
+    backgroundColor: 'transparent',
+    color: 'white',
+    border: '1px solid rgba(255,255,255,0.3)',
+    borderRadius: '6px',
+    padding: '10px 20px',
+    cursor: 'pointer',
+    fontSize: '15px',
+    fontWeight: '500',
+    transition: 'all 0.2s ease',
+    '&:hover': {
+      backgroundColor: 'rgba(255,255,255,0.1)',
+      borderColor: 'rgba(255,255,255,0.5)',
+    },
   },
 };
 
