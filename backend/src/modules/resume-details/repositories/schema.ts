@@ -15,9 +15,9 @@ import {
 
 const ProfileSchema = new Schema<IProfile>(
   {
-    network: { type: String, required: true },
-    username: { type: String, required: true },
-    url: { type: String, required: true },
+    network: { type: String },
+    username: { type: String },
+    url: { type: String },
   },
   { _id: false }
 );
@@ -26,7 +26,7 @@ const LocationSchema = new Schema<ILocation>(
   {
     address: { type: String, default: '' },
     postalCode: { type: String, default: '' },
-    city: { type: String, required: true },
+    city: { type: String },
     countryCode: { type: String, default: '' },
     region: { type: String, default: '' },
   },
@@ -35,23 +35,23 @@ const LocationSchema = new Schema<ILocation>(
 
 const SkillSchema = new Schema<ISkill>(
   {
-    name: { type: String, required: true },
-    level: { type: Number, required: true },
+    name: { type: String },
+    level: { type: Number },
   },
   { _id: false }
 );
 
 const WorkSchema = new Schema<IWork>(
   {
-    id: { type: String, required: true },
-    name: { type: String, required: true },
-    position: { type: String, required: true },
+    id: { type: String },
+    name: { type: String },
+    position: { type: String },
     url: { type: String, default: '' },
-    startDate: { type: String, required: true },
-    isWorkingHere: { type: Boolean, required: true },
+    startDate: { type: String },
+    isWorkingHere: { type: Boolean },
     endDate: { type: String, default: null },
-    highlights: { type: [String], required: true },
-    summary: { type: String, required: true },
+    highlights: { type: [String] },
+    summary: { type: String },
     years: { type: String, default: '' },
   },
   { _id: false }
@@ -59,88 +59,88 @@ const WorkSchema = new Schema<IWork>(
 
 const EducationSchema = new Schema<IEducation>(
   {
-    id: { type: String, required: true },
-    institution: { type: String, required: true },
-    url: { type: String, required: true },
-    studyType: { type: String, required: true },
-    area: { type: String, required: true },
-    startDate: { type: String, required: true },
-    isStudyingHere: { type: Boolean, required: true },
+    id: { type: String },
+    institution: { type: String },
+    url: { type: String },
+    studyType: { type: String },
+    area: { type: String },
+    startDate: { type: String },
+    isStudyingHere: { type: Boolean },
     endDate: { type: String, default: '' },
-    score: { type: String, required: true },
-    courses: { type: [String], required: true },
+    score: { type: String },
+    courses: { type: [String] },
   },
   { _id: false }
 );
 
 const ActivitiesSchema = new Schema<IActivities>(
   {
-    involvements: { type: [String], required: true },
-    achievements: { type: [String], required: true },
+    involvements: { type: [String] },
+    achievements: { type: [String] },
   },
   { _id: false }
 );
 
 const VolunteerSchema = new Schema<IVolunteer>(
   {
-    id: { type: String, required: true },
-    organization: { type: String, required: true },
-    position: { type: String, required: true },
-    url: { type: String, required: true },
-    startDate: { type: String, required: true },
+    id: { type: String },
+    organization: { type: String },
+    position: { type: String },
+    url: { type: String },
+    startDate: { type: String },
     endDate: { type: String, default: '' },
-    summary: { type: String, required: true },
-    highlights: { type: [String], required: true },
-    isVolunteeringNow: { type: Boolean, required: true },
+    summary: { type: String },
+    highlights: { type: [String] },
+    isVolunteeringNow: { type: Boolean },
   },
   { _id: false }
 );
 
 const AwardSchema = new Schema<IAward>(
   {
-    id: { type: String, required: true },
-    title: { type: String, required: true },
-    date: { type: String, required: true },
-    awarder: { type: String, required: true },
-    summary: { type: String, required: true },
+    id: { type: String },
+    title: { type: String },
+    date: { type: String },
+    awarder: { type: String },
+    summary: { type: String },
   },
   { _id: false }
 );
 
 const SkillsSchema = new Schema<ISkills>({
-  languages: { type: [SkillSchema], required: true },
-  frameworks: { type: [SkillSchema], required: true },
-  technologies: { type: [SkillSchema], required: true },
-  libraries: { type: [SkillSchema], required: true },
-  databases: { type: [SkillSchema], required: true },
-  practices: { type: [SkillSchema], required: true },
-  tools: { type: [SkillSchema], required: true },
+  languages: { type: [SkillSchema] },
+  frameworks: { type: [SkillSchema] },
+  technologies: { type: [SkillSchema] },
+  libraries: { type: [SkillSchema] },
+  databases: { type: [SkillSchema] },
+  practices: { type: [SkillSchema] },
+  tools: { type: [SkillSchema] },
 });
 
 const BasicsSchema = new Schema<IBasics>({
-  name: { type: String, required: true },
-  label: { type: String, required: true },
-  email: { type: String, required: true },
-  phone: { type: String, required: true },
-  url: { type: String, required: true },
-  summary: { type: String, required: true },
-  location: { type: LocationSchema, required: true },
-  relExp: { type: String, required: true },
-  totalExp: { type: String, required: true },
-  objective: { type: String, required: true },
-  profiles: { type: [ProfileSchema], required: true },
+  name: { type: String },
+  label: { type: String },
+  email: { type: String },
+  phone: { type: String },
+  url: { type: String },
+  summary: { type: String },
+  location: { type: LocationSchema },
+  relExp: { type: String },
+  totalExp: { type: String },
+  objective: { type: String },
+  profiles: { type: [ProfileSchema] },
 });
 
 const ResumeSchema = new Schema<IResume>(
   {
     title: { type: String, required: true },
-    basics: { type: BasicsSchema, required: true },
-    skills: { type: SkillsSchema, required: true },
-    work: { type: [WorkSchema], required: true },
-    education: { type: [EducationSchema], required: true },
-    activities: { type: ActivitiesSchema, required: true },
-    volunteer: { type: [VolunteerSchema], required: true },
-    awards: { type: [AwardSchema], required: true },
+    basics: { type: BasicsSchema },
+    skills: { type: SkillsSchema },
+    work: { type: [WorkSchema] },
+    education: { type: [EducationSchema] },
+    activities: { type: ActivitiesSchema },
+    volunteer: { type: [VolunteerSchema] },
+    awards: { type: [AwardSchema] },
     createdBy: {
       type: Schema.Types.ObjectId,
       ref: 'User',
@@ -153,6 +153,6 @@ const ResumeSchema = new Schema<IResume>(
   { timestamps: true }
 );
 
-ResumeSchema.index({ createdBy: 1, title: 1 }, { unique: true });
+ResumeSchema.index({ createdBy: 1 });
 
 export default ResumeSchema;

@@ -1,3 +1,4 @@
+import { Types } from 'mongoose';
 import { BaseRepository } from '../../../lib/base';
 
 import { IResume } from '../entities';
@@ -11,10 +12,10 @@ class ResumeRepository extends BaseRepository<IResume> {
   getAll = async (userId: string, fields: string): Promise<IResume[] | null> => {
     const result: IResume[] | null = await this.findAll(
       { createdBy: userId },
-      'name',
+      'title',
       fields,
       0,
-      -1
+      0
     );
     return result;
   };

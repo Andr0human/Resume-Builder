@@ -27,7 +27,7 @@ class ResumeRouter {
   }
 
   private setupRoutes(): void {
-    this.router.get('/', this.authMiddleware.authenticate, this.resumeController.getAll);
+    this.router.get('/getByUserId/:userId', this.authMiddleware.authenticate, this.resumeController.getAll);
 
     this.router.get('/:resumeId', this.authMiddleware.authenticate, this.resumeController.getById);
 

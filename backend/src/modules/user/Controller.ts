@@ -331,9 +331,9 @@ class UserController {
    */
   getByToken = async (req: Request, res: Response): Promise<void> => {
     try {
-      const { userId } = req.body;
+      const { userId } = req.headers;
       const fields: string = '_id email';
-      const user: IUser | null = await this.userService.getById(userId, fields);
+      const user: IUser | null = await this.userService.getById(userId as string, fields);
 
       if (!user) {
         new SystemResponse(res, 'User not found!', req.headers).notFound();

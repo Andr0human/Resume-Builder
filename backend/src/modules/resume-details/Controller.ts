@@ -15,6 +15,14 @@ class ResumeController {
     try {
       const { userId } = req.params;
       const fields: string = '-__v';
+
+      if (!userId) {
+        new SystemResponse(res, 'userId is required!', {
+          userId,
+        }).badRequest();
+        return;
+      }
+
       const resumeList: IResume[] | null = await this.resumeService.getAll(userId, fields);
 
       if (!resumeList) {

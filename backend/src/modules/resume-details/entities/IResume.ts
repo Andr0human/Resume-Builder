@@ -9,13 +9,13 @@ import IWork from './IWork';
 
 interface IResume extends IBase {
   title: string;
-  basics: IBasics;
-  skills: ISkills;
-  work: IWork[];
-  education: IEducation[];
-  activities: IActivities;
-  volunteer: IVolunteer[];
-  awards: IAward[];
+  basics?: IBasics;
+  skills?: ISkills;
+  work?: IWork[];
+  education?: IEducation[];
+  activities?: IActivities;
+  volunteer?: IVolunteer[];
+  awards?: IAward[];
 }
 
 export default IResume;
