@@ -52,7 +52,7 @@ class UserRouter {
     // Get user details by its emailId
     this.router.get('/email/:emailId', UserValiation.email, this.userController.getByEmail);
 
-    // Get job listing by id
+    // Get user details by its id
     this.router.get(
       '/:userId',
       this.authMiddleware.authenticate,
@@ -60,7 +60,7 @@ class UserRouter {
       this.userController.getById
     );
 
-    // Update job listing by id
+    // Update user details by its id
     this.router.put(
       '/:userId',
       this.authMiddleware.authenticate,
@@ -69,7 +69,7 @@ class UserRouter {
       this.userController.updateById
     );
 
-    // Delete job listing by id
+    // Delete user details by its id
     this.router.delete(
       '/:userId',
       this.authMiddleware.authenticate,

@@ -1,8 +1,10 @@
+import { Types } from 'mongoose';
+
 interface IBase {
   createdAt?: Date;
   updatedAt?: Date;
-  createdBy?: string;
-  updatedBy?: string;
+  createdBy?: Types.ObjectId;
+  updatedBy?: Types.ObjectId;
 }
 
 export default IBase;

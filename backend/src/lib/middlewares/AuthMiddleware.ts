@@ -8,14 +8,26 @@ class AuthMiddleware {
   verifyToken: string;
 
   constructor() {
-    this.verifyToken = serverConfig.jwtSecret;
+    this.verifyToken = serverConfig.jwtSecret ?? '';
   }
 
   authenticate = (req: Request, res: Response, next: NextFunction): void => {
-    const token: string | undefined = req.headers.authorization?.split(' ')[1];
+    if (!req.headers.authorization) {
+      logger.error('No authorization header found');
+      new SystemResponse(res, 'No authorization token provided', {}).unauthorized();
+      return;
+    }
+
+    const token: string = req.headers.authorization?.split(' ')[1] ?? '';
+
+    if (!token) {
+      logger.error('Token not found in authorization header');
+      new SystemResponse(res, 'Invalid authorization header format', {}).unauthorized();
+      return;
+    }
 
     try {
-      JWT.verify(token ?? '', this.verifyToken ?? '');
+      JWT.verify(token, this.verifyToken);
 
       next();
     } catch (error: unknown) {
@@ -25,11 +37,33 @@ class AuthMiddleware {
   };
 
   static extractUser = (req: Request, res: Response, next: NextFunction): void => {
-    const token: string = req.headers.authorization?.split(' ')[1] ?? '';
-    const decoded: JwtPayload = JWT.decode(token) as JwtPayload;
+    if (!req.headers.authorization) {
+      logger.error('No authorization header found');
+      new SystemResponse(res, 'No authorization token provided', {}).unauthorized();
+      return;
+    }
 
-    req.body.userId = decoded.userId;
-    next();
+    const token: string = req.headers.authorization?.split(' ')[1] ?? '';
+
+    if (!token) {
+      logger.error('Token not found in authorization header');
+      new SystemResponse(res, 'Invalid authorization header format', {}).unauthorized();
+      return;
+    }
+
+    try {
+      const decoded: JwtPayload = JWT.decode(token) as JwtPayload;
+
+      if (!decoded.userId) {
+        throw new Error('Invalid token: userId not found');
+      }
+
+      req.headers.userId = decoded.userId;
+      next();
+    } catch (error: unknown) {
+      logger.error('error in authenticate middleware!', error);
+      new SystemResponse(res, 'user token authentication failed!', error).unauthorized();
+    }
   };
 }
 
